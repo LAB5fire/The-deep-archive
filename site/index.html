@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Deep Archive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stars"></div>
+
+<main id="login" class="card hidden">
+  <h1>The Deep Archive</h1>
+  <p class="sub">Ten rooms. A hundred vaults. Five locks each.</p>
+  <p class="riddle" id="loginRiddle"></p>
+  <label>Answer<input id="loginInput" autocomplete="off" spellcheck="false"></label>
+  <button id="loginBtn">Enter</button>
+  <p class="err" id="loginErr"></p>
+  <p class="small" id="loginBoot">Loading…</p>
+</main>
+
+<main id="hub" class="wide hidden">
+  <header class="hubhead">
+    <h1>The Deep Archive</h1>
+    <div class="hubtools">
+      <span id="progress" class="small"></span>
+      <button id="exportBtn" class="ghostbtn">Save progress</button>
+      <button id="importBtn" class="ghostbtn">Load progress</button>
+    </div>
+  </header>
+  <div id="rooms"></div>
+  <details class="docs"><summary>How this works</summary>
+    <p class="small">Every <b>vault</b> is a file sealed with <b>five locks</b>, each lock a layer of encryption. A lock opens with a key made from the answers of the <b>seals</b> printed under it: little puzzles of every kind (ciphers, pictures, sound, files, code, the browser itself). Some locks are threshold locks: they are made from many seals, and any k of them open the lock, so a team can work on them in parallel. When you have decrypted a vault you find a line <code>ANSWER:</code>; type it on the page to solve the vault.</p>
+    <p class="small">When every vault of a room is solved, the <b>door</b> of the room opens: its locks are made of the seals you earned. Solving a door opens the next room.</p>
+    <p class="small">Nothing here can be skipped: later rooms are encrypted with what you earn in earlier ones. There are no scores and no clocks. Tools, code and teams are all allowed.</p>
+    <p class="small"><b>Working in a team:</b> “Save progress” gives a code; “Load progress” on someone else's computer <i>merges</i> it (seals, notes and verified locks). Keep your own notes of answers; later vaults refer to earlier ones.</p>
+  </details>
+  <p class="small foot">Progress and notes live in this browser only. Use “Save progress” now and then.</p>
+</main>
+
+<main id="puzzle" class="wide hidden">
+  <button id="backBtn" class="ghostbtn">← Back</button>
+  <div class="phead"><h2 id="pTitle"></h2><span id="pMeta" class="small"></span></div>
+  <p class="story" id="pStory"></p>
+  <div id="pBody"></div>
+  <div id="pInputs"></div>
+  <div class="row">
+    <button id="checkBtn">Check</button>
+    <button id="hintBtn" class="ghostbtn">Hint</button>
+  </div>
+  <div id="pHints"></div>
+  <p class="msg" id="pMsg"></p>
+  <details class="notes" open><summary>Notes</summary><textarea id="pNotes" spellcheck="false" placeholder="Your notes for this page (saved in this browser)"></textarea></details>
+</main>
+
+<div id="modal" class="modal hidden"><div class="modalbox"><p id="modalText" class="small"></p><textarea id="modalArea" spellcheck="false"></textarea><div class="row"><button id="modalOk">OK</button><button id="modalCancel" class="ghostbtn">Close</button></div></div></div>
+
+<script src="app.js"></script>
+</body>
+</html>
